@@ -1,0 +1,18 @@
+{
+  "name": "com.datek.eva",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {
+    "homey": "^2.9.7"
+  },
+  "platforms": [
+    "local",
+    "cloud"
+  ],
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "homey-meshdriver": "^2.0.3",
+    "homey-zigbeedriver": "^1.6.12",
+    "zigbee-clusters": "^1.7.1"
+  }
+}
