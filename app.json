@@ -1,1 +1,1029 @@
-{"_comment":"This file is generated. Please edit .homeycompose/app.json instead.","id":"com.datek.eva","version":"2.4.0","compatibility":">=5.0.0","sdk":3,"platforms":["local","cloud"],"name":{"en":"Eva Smart Home","no":"Eva Smarthus"},"description":{"en":"Smart home made simple","no":"Smarthus gjort enkelt"},"category":["appliances"],"brandColor":"#004232","permissions":["homey:wireless:zigbee"],"images":{"small":"/assets/images/small.png","large":"/assets/images/large.png"},"author":{"name":"Datek Smart Home AS"},"contributing":{"developers":{"name":"Emil Barstad","email":"emil@datek.no"}},"homepage":"https://evasmart.no","support":"mailto:support@evasmart.no","bugs":{"url":"https://shop.evasmart.no/side/kontakt_oss"},"flow":{"actions":[{"id":"random_toggles","title":{"en":"Randomly toggle all Eva Smart Plugs on/off","no":"Skru tilfeldig alle Eva Smartplugger på/av"},"titleFormatted":{"en":"Randomly toggle all Eva Smart Plugs on/off","no":"Skru tilfeldig alle Eva Smartplugger på/av"}},{"id":"turn_all","title":{"en":"Turn all Eva Smart Plugs on/off","no":"Skru alle Eva Smartplugger på/av"},"titleFormatted":{"en":"Turn all Eva Smart Plugs [[on_off_flow]]","no":"Skru alle Eva Smartplugger [[on_off_flow]]"},"platforms":["local","cloud"],"args":[{"name":"on_off_flow","title":{"en":"Turn on/off","no":"Skru på/av"},"type":"dropdown","values":[{"id":"on","label":{"en":"On","no":"På"}},{"id":"off","label":{"en":"Off","no":"Av"}}],"filter":"class=socket","capabilities":"onoff"}]}],"triggers":[{"id":"on","title":{"en":"On button is pressed","no":"På-knappen trykkes"},"args":[{"type":"device","name":"device","filter":"driver_id=scene-selector"}]},{"id":"off","title":{"en":"Off button is pressed","no":"Av-knappen trykkes"},"args":[{"type":"device","name":"device","filter":"driver_id=scene-selector"}]},{"id":"off_held","title":{"en":"Off button is long pressed","no":"Av-knappen holdes nede"},"args":[{"type":"device","name":"device","filter":"driver_id=scene-selector"}]},{"id":"off_released","title":{"en":"Off button is released","no":"Av-knappen slippes"},"args":[{"type":"device","name":"device","filter":"driver_id=scene-selector"}]},{"id":"scenario1","title":{"en":"Scenario button 1 is pressed","no":"Scenario-knapp 1 trykkes"},"args":[{"type":"device","name":"device","filter":"driver_id=scene-selector"}]},{"id":"scenario2","title":{"en":"Scenario button 2 is pressed","no":"Scenario-knapp 2 trykkes"},"args":[{"type":"device","name":"device","filter":"driver_id=scene-selector"}]},{"id":"scenario3","title":{"en":"Scenario button 3 is pressed","no":"Scenario-knapp 3 trykkes"},"args":[{"type":"device","name":"device","filter":"driver_id=scene-selector"}]},{"id":"scenario4","title":{"en":"Scenario button 4 is pressed","no":"Scenario-knapp 4 trykkes"},"args":[{"type":"device","name":"device","filter":"driver_id=scene-selector"}]},{"id":"Save Scenario 1","title":{"en":"Scenario 1 button is long pressed","no":"Scenario-knapp 1 holdes nede"},"hint":{"en":"Hold the button for at least 10 seconds","no":"Hold knappen nede i minst 10 sekunder"},"args":[{"type":"device","name":"device","filter":"driver_id=scene-selector"}]},{"id":"Save Scenario 2","title":{"en":"Scenario 2 button is long pressed","no":"Scenario-knapp 2 holdes nede"},"hint":{"en":"Hold the button for at least 10 seconds","no":"Hold knappen nede i minst 10 sekunder"},"args":[{"type":"device","name":"device","filter":"driver_id=scene-selector"}]},{"id":"Save Scenario 3","title":{"en":"Scenario 3 button is long pressed","no":"Scenario-knapp 3 holdes nede"},"hint":{"en":"Hold the button for at least 10 seconds","no":"Hold knappen nede i minst 10 sekunder"},"args":[{"type":"device","name":"device","filter":"driver_id=scene-selector"}]},{"id":"Save Scenario 4","title":{"en":"Scenario 4 button is long pressed","no":"Scenario-knapp 4 holdes nede"},"hint":{"en":"Hold the button for at least 10 seconds","no":"Hold knappen nede i minst 10 sekunder"},"args":[{"type":"device","name":"device","filter":"driver_id=scene-selector"}]}]},"drivers":[{"name":{"en":"Contact Switch","no":"Kontaktbryter"},"class":"sensor","capabilities":["alarm_contact","measure_temperature","alarm_battery"],"energy":{"batteries":["CR2"]},"platforms":["local","cloud"],"connectivity":["zigbee"],"images":{"small":"/drivers/datek-contact-switch/assets/images/small.png","large":"/drivers/datek-contact-switch/assets/images/large.png"},"zigbee":{"manufacturerName":"Datek","productId":["Contact Switch"],"applicationProfileId":260,"applicationDeviceId":1026,"endpoints":{"1":{"clusters":[0,1,3,32,1026,1280,65261],"bindings":[3,25]}},"learnmode":{"image":"/drivers/datek-contact-switch/assets/images/datek_contact_switch_reset.svg","instruction":{"en":"Remove plastic from the battery to start pairing the device.","no":"Fjern plastikk fra batteriet for å starte innparing."}}},"id":"datek-contact-switch","settings":[{"id":"offset","type":"number","label":{"en":"Temperature offset in degrees celsius","no":"Temperaturjustering i grader celsius"},"value":0,"hint":"The value is used to adjust the measure temperature capability.","min":-25,"max":25,"units":{"en":"°C"}}]},{"name":{"en":"Door/Window Sensor","no":"Dør-/vindussensor"},"class":"sensor","capabilities":["alarm_contact","measure_temperature","alarm_battery"],"energy":{"batteries":["CR2450"]},"platforms":["local","cloud"],"connectivity":["zigbee"],"images":{"small":"/drivers/door-window-sensor/assets/images/small.png","large":"/drivers/door-window-sensor/assets/images/large.png"},"zigbee":{"manufacturerName":"Eva","productId":["Door/Window Sensor"],"applicationProfileId":260,"applicationDeviceId":1026,"endpoints":{"1":{"clusters":[0,1,3,32,1026,1280,65261],"bindings":[3,25]}},"learnmode":{"image":"/drivers/door-window-sensor/assets/images/learn_mode_door_window.svg","instruction":{"en":"Insert battery and hold button for more than 10 seconds to start pairing.","no":"Sett inn batteri og hold knappen inne i mer enn 10 sekunder for å starte paring."}}},"id":"door-window-sensor","settings":[{"id":"offset","type":"number","label":{"en":"Temperature offset in degrees celsius","no":"Temperaturjustering i grader celsius"},"value":0,"hint":"The value is used to adjust the measure temperature capability.","min":-25,"max":25,"units":{"en":"°C"}}]},{"id":"eva-motion-sensor","name":{"en":"Eva Motion Sensor","no":"Eva Bevegelsessensor"},"class":"sensor","capabilities":["alarm_motion","measure_temperature","alarm_battery","measure_luminance"],"platforms":["local","cloud"],"connectivity":["zigbee"],"images":{"small":"/drivers/eva-motion-sensor/assets/images/small.png","large":"/drivers/eva-motion-sensor/assets/images/large.png"},"energy":{"batteries":["CR123A"]},"zigbee":{"manufacturerName":"Eva","productId":["Motion Sensor"],"applicationProfileId":260,"applicationDeviceId":1026,"endpoints":{"1":{"clusters":[0,1,3,32,1024,1026,1030,1280,65261],"bindings":[3,25]}},"learnmode":{"image":"/drivers/eva-motion-sensor/assets/images/learn_mode_motion_sensor.svg","instruction":{"en":"Insert battery and hold button for more than 15 seconds to start pairing.","no":"Sett inn batteri og hold knappen inne i mer enn 15 sekunder for å starte paring."}}},"settings":[{"id":"offset","type":"number","label":{"en":"Temperature offset in degrees celsius","no":"Temperaturjustering i grader celsius"},"value":0,"hint":"The value is used to adjust the measure temperature capability.","min":-25,"max":25,"units":{"en":"°C"}}]},{"id":"eva-water-sensor","name":{"en":"Eva Water Sensor","no":"Eva Vannsensor"},"class":"sensor","capabilities":["alarm_water","measure_temperature","alarm_battery"],"platforms":["local","cloud"],"connectivity":["zigbee"],"energy":{"batteries":["CR2450","CR2450"]},"images":{"small":"/drivers/eva-water-sensor/assets/images/small.png","large":"/drivers/eva-water-sensor/assets/images/large.png"},"zigbee":{"manufacturerName":"Eva","productId":["Water Sensor"],"applicationProfileId":260,"applicationDeviceId":1026,"endpoints":{"1":{"clusters":[0,1,3,32,1026,1280,65261],"bindings":[3,25]}},"learnmode":{"image":"/drivers/eva-water-sensor/assets/images/learn_mode_water_sensor.svg","instruction":{"en":"Insert batteries and hold button for more than 15 seconds to start pairing.","no":"Sett inn batterier og hold knappen inne i mer enn 15 sekunder for å starte paring."}}},"settings":[{"id":"offset","type":"number","label":{"en":"Temperature offset in degrees celsius","no":"Temperaturjustering i grader celsius"},"value":0,"hint":"The value is used to adjust the measure temperature capability.","min":-25,"max":25,"units":{"en":"°C"}}]},{"id":"meter-reader","name":{"en":"Eva Meter Reader","no":"Eva Måleravleser"},"platforms":["local","cloud"],"connectivity":["zigbee"],"class":"sensor","energy":{"batteries":["CR123A"],"cumulative":true},"capabilities":["measure_power","meter_power","measure_temperature"],"images":{"large":"/drivers/meter-reader/assets/images/large.png","small":"/drivers/meter-reader/assets/images/small.png"},"zigbee":{"manufacturerName":["Datek","Eva"],"productId":["Meter Reader"],"profileId":260,"applicationDeviceId":83,"endpoints":{"1":{"clusters":[0,1,3,1026,1794,2820],"bindings":[3]}},"learnmode":{"image":"/drivers/meter-reader/assets/images/learn_mode_han.svg","instruction":{"en":"Insert battery and hold button for more than 10 seconds to start pairing.","no":"Sett inn batteri og hold knappen inne i mer enn 10 sekunder for å starte paring."}}},"settings":[{"id":"toggle_voltage","type":"checkbox","label":{"en":"Voltage","no":"Spenning"},"hint":{"en":"Should voltage be visible on the device page?","no":"Skal spenning gjøres synlig på enhetssiden?"},"value":false},{"id":"toggle_current","type":"checkbox","label":{"en":"Current","no":"Strøm"},"hint":{"en":"Should current be visible on the device page?","no":"Skal strøm gjøres synlig på enhetssiden?"},"value":false},{"id":"toggle_voltage_phase_b","type":"checkbox","label":{"en":"Voltage phase b","no":"Spenning fase b"},"hint":{"en":"Should voltage phase b be visible on the device page?","no":"Skal spenning fase b gjøres synlig på enhetssiden?"},"value":false},{"id":"toggle_current_phase_b","type":"checkbox","label":{"en":"Current phase b","no":"Strøm fase b"},"hint":{"en":"Should current phase b be visible on the device page?","no":"Skal strøm fase b gjøres synlig på enhetssiden?"},"value":false},{"id":"toggle_voltage_phase_c","type":"checkbox","label":{"en":"Voltage phase c","no":"Spenning phase c"},"hint":{"en":"Should voltage phase c be visible on the device page?","no":"Skal spenning fase c gjøres synlig på enhetssiden?"},"value":false},{"id":"toggle_current_phase_c","type":"checkbox","label":{"en":"Current phase c","no":"Strøm fase c"},"hint":{"en":"Should current phase c be visible on the device page?","no":"Skal strøm fase c gjøres synlig på enhetssiden?"},"value":false},{"id":"offset","type":"number","label":{"en":"Temperature offset in degrees celsius","no":"Temperaturjustering i grader celsius"},"value":0,"hint":"The value is used to adjust the measure temperature capability.","min":-25,"max":25,"units":{"en":"°C"}},{"id":"multiplier","type":"number","label":{"en":"The multiplier to your effect measurement.","no":"Multiplikator for din effektmåling."},"value":1,"hint":"The multiplier to your effect measurement. Default is 1.","min":0,"max":10000}]},{"id":"scene-selector","name":{"en":"Eva Scene Selector","no":"Eva Stemningsbryter"},"platforms":["local","cloud"],"connectivity":["zigbee"],"class":"remote","capabilities":["measure_temperature","alarm_battery"],"energy":{"batteries":["AA","AA"]},"images":{"large":"/drivers/scene-selector/assets/images/large.png","small":"/drivers/scene-selector/assets/images/small.png"},"zigbee":{"manufacturerName":"Eva","productId":["Scene Selector"],"applicationProfileId":260,"applicationDeviceId":4,"endpoints":{"1":{"clusters":[0,1,3,1026,65191,65261],"bindings":[3,4,5,6,8,25,4096]}},"learnmode":{"image":"/drivers/scene-selector/assets/images/learn_mode_scene_selector.svg","instruction":{"en":"Press and hold the buttons 1, 2, 3 and 4 at the same time for more than 5 seconds to initialize pairing mode","no":"Hold inne knappene 1, 2, 3, 4 samtidig i mer enn 5 sekunder for å initialisere paringsmodus"}}}},{"id":"smart-plug","name":{"en":"Eva Smart Plug","no":"Eva Smartplugg"},"class":"socket","capabilities":["onoff","measure_power"],"images":{"large":"/drivers/smart-plug/assets/images/large.png","small":"/drivers/smart-plug/assets/images/small.png"},"platforms":["local","cloud"],"connectivity":["zigbee"],"zigbee":{"manufacturerName":["Datek","Apex","Eva"],"productId":["PoP"],"deviceId":9,"profileId":260,"endpoints":{"1":{"clusters":[0,3,4,5,6,9,1026,2820,4096],"bindings":[3,4,5,6,9,1026,2820]}},"learnmode":{"image":"/drivers/smart-plug/assets/images/learn_mode_smart_plug.svg","instruction":{"en":"Long press button for 10 sec to start pairing","no":"Hold inne knappen i 10 sekunder for å starte innparing"}}}}],"capabilities":{"measure_rms_current":{"type":"number","title":{"en":"Current","no":"Strøm"},"getable":true,"setable":false,"uiComponent":"sensor","uiQuickAction":false,"decimals":3,"min":0,"max":60000000,"icon":"/assets/amperemeter.svg","units":{"en":"A","no":"A"},"insights":true},"measure_rms_current_phase_b":{"type":"number","title":{"en":"Current phase b","no":"Strøm fase b"},"getable":true,"setable":true,"uiComponent":"sensor","uiQuickAction":false,"decimals":3,"min":0,"max":60000000,"icon":"/assets/amperemeter.svg","units":{"en":"A","no":"A"},"insights":true},"measure_rms_current_phase_c":{"type":"number","title":{"en":"Current phase c","no":"Strøm fase c"},"getable":true,"setable":true,"uiComponent":"sensor","uiQuickAction":false,"decimals":3,"min":0,"max":60000000,"icon":"/assets/amperemeter.svg","units":{"en":"A","no":"A"},"insights":true},"measure_rms_voltage":{"type":"number","title":{"en":"Voltage","no":"Volt"},"getable":true,"setable":false,"uiComponent":"sensor","uiQuickAction":false,"decimals":3,"min":0,"max":60000000,"icon":"/assets/voltmeter.svg","units":{"en":"V","no":"V"},"insights":true},"measure_rms_voltage_phase_b":{"type":"number","title":{"en":"Voltage phase b","no":"Volt fase b"},"getable":true,"setable":false,"uiComponent":"sensor","uiQuickAction":false,"decimals":3,"min":0,"max":60000000,"icon":"/assets/voltmeter.svg","units":{"en":"V","no":"V"},"insights":true},"measure_rms_voltage_phase_c":{"type":"number","title":{"en":"Voltage phase c","no":"Volt fase c"},"getable":true,"setable":false,"uiComponent":"sensor","uiQuickAction":false,"decimals":3,"min":0,"max":60000000,"icon":"/assets/voltmeter.svg","units":{"en":"V","no":"V"},"insights":true}}}
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.datek.eva",
+  "version": "2.4.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local",
+    "cloud"
+  ],
+  "name": {
+    "en": "Eva Smart Home",
+    "no": "Eva Smarthus"
+  },
+  "description": {
+    "en": "Smart home made simple",
+    "no": "Smarthus gjort enkelt"
+  },
+  "category": [
+    "appliances"
+  ],
+  "brandColor": "#004232",
+  "permissions": [
+    "homey:wireless:zigbee"
+  ],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png"
+  },
+  "author": {
+    "name": "Datek Smart Home AS"
+  },
+  "contributing": {
+    "developers": {
+      "name": "Emil Barstad",
+      "email": "emil@datek.no"
+    }
+  },
+  "homepage": "https://evasmart.no",
+  "support": "mailto:support@evasmart.no",
+  "bugs": {
+    "url": "https://shop.evasmart.no/side/kontakt_oss"
+  },
+  "flow": {
+    "actions": [
+      {
+        "id": "random_toggles",
+        "title": {
+          "en": "Randomly toggle all Eva Smart Plugs on/off",
+          "no": "Skru tilfeldig alle Eva Smartplugger på/av"
+        },
+        "titleFormatted": {
+          "en": "Randomly toggle all Eva Smart Plugs on/off",
+          "no": "Skru tilfeldig alle Eva Smartplugger på/av"
+        }
+      },
+      {
+        "id": "turn_all",
+        "title": {
+          "en": "Turn all Eva Smart Plugs on/off",
+          "no": "Skru alle Eva Smartplugger på/av"
+        },
+        "titleFormatted": {
+          "en": "Turn all Eva Smart Plugs [[on_off_flow]]",
+          "no": "Skru alle Eva Smartplugger [[on_off_flow]]"
+        },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
+        "args": [
+          {
+            "name": "on_off_flow",
+            "title": {
+              "en": "Turn on/off",
+              "no": "Skru på/av"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "no": "På"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "no": "Av"
+                }
+              }
+            ],
+            "filter": "class=socket",
+            "capabilities": "onoff"
+          }
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "id": "on",
+        "title": {
+          "en": "On button is pressed",
+          "no": "På-knappen trykkes"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=scene-selector"
+          }
+        ]
+      },
+      {
+        "id": "off",
+        "title": {
+          "en": "Off button is pressed",
+          "no": "Av-knappen trykkes"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=scene-selector"
+          }
+        ]
+      },
+      {
+        "id": "off_held",
+        "title": {
+          "en": "Off button is long pressed",
+          "no": "Av-knappen holdes nede"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=scene-selector"
+          }
+        ]
+      },
+      {
+        "id": "off_released",
+        "title": {
+          "en": "Off button is released",
+          "no": "Av-knappen slippes"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=scene-selector"
+          }
+        ]
+      },
+      {
+        "id": "scenario1",
+        "title": {
+          "en": "Scenario button 1 is pressed",
+          "no": "Scenario-knapp 1 trykkes"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=scene-selector"
+          }
+        ]
+      },
+      {
+        "id": "scenario2",
+        "title": {
+          "en": "Scenario button 2 is pressed",
+          "no": "Scenario-knapp 2 trykkes"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=scene-selector"
+          }
+        ]
+      },
+      {
+        "id": "scenario3",
+        "title": {
+          "en": "Scenario button 3 is pressed",
+          "no": "Scenario-knapp 3 trykkes"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=scene-selector"
+          }
+        ]
+      },
+      {
+        "id": "scenario4",
+        "title": {
+          "en": "Scenario button 4 is pressed",
+          "no": "Scenario-knapp 4 trykkes"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=scene-selector"
+          }
+        ]
+      },
+      {
+        "id": "Save Scenario 1",
+        "title": {
+          "en": "Scenario 1 button is long pressed",
+          "no": "Scenario-knapp 1 holdes nede"
+        },
+        "hint": {
+          "en": "Hold the button for at least 10 seconds",
+          "no": "Hold knappen nede i minst 10 sekunder"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=scene-selector"
+          }
+        ]
+      },
+      {
+        "id": "Save Scenario 2",
+        "title": {
+          "en": "Scenario 2 button is long pressed",
+          "no": "Scenario-knapp 2 holdes nede"
+        },
+        "hint": {
+          "en": "Hold the button for at least 10 seconds",
+          "no": "Hold knappen nede i minst 10 sekunder"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=scene-selector"
+          }
+        ]
+      },
+      {
+        "id": "Save Scenario 3",
+        "title": {
+          "en": "Scenario 3 button is long pressed",
+          "no": "Scenario-knapp 3 holdes nede"
+        },
+        "hint": {
+          "en": "Hold the button for at least 10 seconds",
+          "no": "Hold knappen nede i minst 10 sekunder"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=scene-selector"
+          }
+        ]
+      },
+      {
+        "id": "Save Scenario 4",
+        "title": {
+          "en": "Scenario 4 button is long pressed",
+          "no": "Scenario-knapp 4 holdes nede"
+        },
+        "hint": {
+          "en": "Hold the button for at least 10 seconds",
+          "no": "Hold knappen nede i minst 10 sekunder"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=scene-selector"
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Contact Switch",
+        "no": "Kontaktbryter"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact",
+        "measure_temperature",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2"
+        ]
+      },
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "images": {
+        "small": "/drivers/datek-contact-switch/assets/images/small.png",
+        "large": "/drivers/datek-contact-switch/assets/images/large.png"
+      },
+      "zigbee": {
+        "manufacturerName": "Datek",
+        "productId": [
+          "Contact Switch"
+        ],
+        "applicationProfileId": 260,
+        "applicationDeviceId": 1026,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              32,
+              1026,
+              1280,
+              65261
+            ],
+            "bindings": [
+              3,
+              25
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/datek-contact-switch/assets/images/datek_contact_switch_reset.svg",
+          "instruction": {
+            "en": "Remove plastic from the battery to start pairing the device.",
+            "no": "Fjern plastikk fra batteriet for å starte innparing."
+          }
+        }
+      },
+      "id": "datek-contact-switch",
+      "settings": [
+        {
+          "id": "offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset in degrees celsius",
+            "no": "Temperaturjustering i grader celsius"
+          },
+          "value": 0,
+          "hint": "The value is used to adjust the measure temperature capability.",
+          "min": -25,
+          "max": 25,
+          "units": {
+            "en": "°C"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Door/Window Sensor",
+        "no": "Dør-/vindussensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact",
+        "measure_temperature",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2450"
+        ]
+      },
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "images": {
+        "small": "/drivers/door-window-sensor/assets/images/small.png",
+        "large": "/drivers/door-window-sensor/assets/images/large.png"
+      },
+      "zigbee": {
+        "manufacturerName": "Eva",
+        "productId": [
+          "Door/Window Sensor"
+        ],
+        "applicationProfileId": 260,
+        "applicationDeviceId": 1026,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              32,
+              1026,
+              1280,
+              65261
+            ],
+            "bindings": [
+              3,
+              25
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/door-window-sensor/assets/images/learn_mode_door_window.svg",
+          "instruction": {
+            "en": "Insert battery and hold button for more than 10 seconds to start pairing.",
+            "no": "Sett inn batteri og hold knappen inne i mer enn 10 sekunder for å starte paring."
+          }
+        }
+      },
+      "id": "door-window-sensor",
+      "settings": [
+        {
+          "id": "offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset in degrees celsius",
+            "no": "Temperaturjustering i grader celsius"
+          },
+          "value": 0,
+          "hint": "The value is used to adjust the measure temperature capability.",
+          "min": -25,
+          "max": 25,
+          "units": {
+            "en": "°C"
+          }
+        }
+      ]
+    },
+    {
+      "id": "eva-motion-sensor",
+      "name": {
+        "en": "Eva Motion Sensor",
+        "no": "Eva Bevegelsessensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "measure_temperature",
+        "alarm_battery",
+        "measure_luminance"
+      ],
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "images": {
+        "small": "/drivers/eva-motion-sensor/assets/images/small.png",
+        "large": "/drivers/eva-motion-sensor/assets/images/large.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": "Eva",
+        "productId": [
+          "Motion Sensor"
+        ],
+        "applicationProfileId": 260,
+        "applicationDeviceId": 1026,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              32,
+              1024,
+              1026,
+              1030,
+              1280,
+              65261
+            ],
+            "bindings": [
+              3,
+              25
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/eva-motion-sensor/assets/images/learn_mode_motion_sensor.svg",
+          "instruction": {
+            "en": "Insert battery and hold button for more than 15 seconds to start pairing.",
+            "no": "Sett inn batteri og hold knappen inne i mer enn 15 sekunder for å starte paring."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset in degrees celsius",
+            "no": "Temperaturjustering i grader celsius"
+          },
+          "value": 0,
+          "hint": "The value is used to adjust the measure temperature capability.",
+          "min": -25,
+          "max": 25,
+          "units": {
+            "en": "°C"
+          }
+        }
+      ]
+    },
+    {
+      "id": "eva-water-sensor",
+      "name": {
+        "en": "Eva Water Sensor",
+        "no": "Eva Vannsensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_water",
+        "measure_temperature",
+        "alarm_battery"
+      ],
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2450",
+          "CR2450"
+        ]
+      },
+      "images": {
+        "small": "/drivers/eva-water-sensor/assets/images/small.png",
+        "large": "/drivers/eva-water-sensor/assets/images/large.png"
+      },
+      "zigbee": {
+        "manufacturerName": "Eva",
+        "productId": [
+          "Water Sensor"
+        ],
+        "applicationProfileId": 260,
+        "applicationDeviceId": 1026,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              32,
+              1026,
+              1280,
+              65261
+            ],
+            "bindings": [
+              3,
+              25
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/eva-water-sensor/assets/images/learn_mode_water_sensor.svg",
+          "instruction": {
+            "en": "Insert batteries and hold button for more than 15 seconds to start pairing.",
+            "no": "Sett inn batterier og hold knappen inne i mer enn 15 sekunder for å starte paring."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset in degrees celsius",
+            "no": "Temperaturjustering i grader celsius"
+          },
+          "value": 0,
+          "hint": "The value is used to adjust the measure temperature capability.",
+          "min": -25,
+          "max": 25,
+          "units": {
+            "en": "°C"
+          }
+        }
+      ]
+    },
+    {
+      "id": "meter-reader",
+      "name": {
+        "en": "Eva Meter Reader",
+        "no": "Eva Måleravleser"
+      },
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "class": "sensor",
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ],
+        "cumulative": true
+      },
+      "capabilities": [
+        "measure_power",
+        "meter_power",
+        "measure_temperature"
+      ],
+      "images": {
+        "large": "/drivers/meter-reader/assets/images/large.png",
+        "small": "/drivers/meter-reader/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "Datek",
+          "Eva"
+        ],
+        "productId": [
+          "Meter Reader"
+        ],
+        "profileId": 260,
+        "applicationDeviceId": 83,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              1026,
+              1794,
+              2820
+            ],
+            "bindings": [
+              3
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/meter-reader/assets/images/learn_mode_han.svg",
+          "instruction": {
+            "en": "Insert battery and hold button for more than 10 seconds to start pairing.",
+            "no": "Sett inn batteri og hold knappen inne i mer enn 10 sekunder for å starte paring."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "toggle_voltage",
+          "type": "checkbox",
+          "label": {
+            "en": "Voltage",
+            "no": "Spenning"
+          },
+          "hint": {
+            "en": "Should voltage be visible on the device page?",
+            "no": "Skal spenning gjøres synlig på enhetssiden?"
+          },
+          "value": false
+        },
+        {
+          "id": "toggle_current",
+          "type": "checkbox",
+          "label": {
+            "en": "Current",
+            "no": "Strøm"
+          },
+          "hint": {
+            "en": "Should current be visible on the device page?",
+            "no": "Skal strøm gjøres synlig på enhetssiden?"
+          },
+          "value": false
+        },
+        {
+          "id": "toggle_voltage_phase_b",
+          "type": "checkbox",
+          "label": {
+            "en": "Voltage phase b",
+            "no": "Spenning fase b"
+          },
+          "hint": {
+            "en": "Should voltage phase b be visible on the device page?",
+            "no": "Skal spenning fase b gjøres synlig på enhetssiden?"
+          },
+          "value": false
+        },
+        {
+          "id": "toggle_current_phase_b",
+          "type": "checkbox",
+          "label": {
+            "en": "Current phase b",
+            "no": "Strøm fase b"
+          },
+          "hint": {
+            "en": "Should current phase b be visible on the device page?",
+            "no": "Skal strøm fase b gjøres synlig på enhetssiden?"
+          },
+          "value": false
+        },
+        {
+          "id": "toggle_voltage_phase_c",
+          "type": "checkbox",
+          "label": {
+            "en": "Voltage phase c",
+            "no": "Spenning phase c"
+          },
+          "hint": {
+            "en": "Should voltage phase c be visible on the device page?",
+            "no": "Skal spenning fase c gjøres synlig på enhetssiden?"
+          },
+          "value": false
+        },
+        {
+          "id": "toggle_current_phase_c",
+          "type": "checkbox",
+          "label": {
+            "en": "Current phase c",
+            "no": "Strøm fase c"
+          },
+          "hint": {
+            "en": "Should current phase c be visible on the device page?",
+            "no": "Skal strøm fase c gjøres synlig på enhetssiden?"
+          },
+          "value": false
+        },
+        {
+          "id": "offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset in degrees celsius",
+            "no": "Temperaturjustering i grader celsius"
+          },
+          "value": 0,
+          "hint": "The value is used to adjust the measure temperature capability.",
+          "min": -25,
+          "max": 25,
+          "units": {
+            "en": "°C"
+          }
+        },
+        {
+          "id": "multiplier",
+          "type": "number",
+          "label": {
+            "en": "The multiplier to your effect measurement.",
+            "no": "Multiplikator for din effektmåling."
+          },
+          "value": 1,
+          "hint": "The multiplier to your effect measurement. Default is 1.",
+          "min": 0,
+          "max": 10000
+        }
+      ]
+    },
+    {
+      "id": "scene-selector",
+      "name": {
+        "en": "Eva Scene Selector",
+        "no": "Eva Stemningsbryter"
+      },
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "class": "remote",
+      "capabilities": [
+        "measure_temperature",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/scene-selector/assets/images/large.png",
+        "small": "/drivers/scene-selector/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": "Eva",
+        "productId": [
+          "Scene Selector"
+        ],
+        "applicationProfileId": 260,
+        "applicationDeviceId": 4,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              1026,
+              65191,
+              65261
+            ],
+            "bindings": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              25,
+              4096
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/scene-selector/assets/images/learn_mode_scene_selector.svg",
+          "instruction": {
+            "en": "Press and hold the buttons 1, 2, 3 and 4 at the same time for more than 5 seconds to initialize pairing mode",
+            "no": "Hold inne knappene 1, 2, 3, 4 samtidig i mer enn 5 sekunder for å initialisere paringsmodus"
+          }
+        }
+      }
+    },
+    {
+      "id": "smart-plug",
+      "name": {
+        "en": "Eva Smart Plug",
+        "no": "Eva Smartplugg"
+      },
+      "class": "socket",
+      "capabilities": [
+        "onoff",
+        "measure_power"
+      ],
+      "images": {
+        "large": "/drivers/smart-plug/assets/images/large.png",
+        "small": "/drivers/smart-plug/assets/images/small.png"
+      },
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "zigbee": {
+        "manufacturerName": [
+          "Datek",
+          "Apex",
+          "Eva"
+        ],
+        "productId": [
+          "PoP"
+        ],
+        "deviceId": 9,
+        "profileId": 260,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              9,
+              1026,
+              2820,
+              4096
+            ],
+            "bindings": [
+              3,
+              4,
+              5,
+              6,
+              9,
+              1026,
+              2820
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smart-plug/assets/images/learn_mode_smart_plug.svg",
+          "instruction": {
+            "en": "Long press button for 10 sec to start pairing",
+            "no": "Hold inne knappen i 10 sekunder for å starte innparing"
+          }
+        }
+      }
+    }
+  ],
+  "capabilities": {
+    "measure_rms_current": {
+      "type": "number",
+      "title": {
+        "en": "Current",
+        "no": "Strøm"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "decimals": 3,
+      "min": 0,
+      "max": 60000000,
+      "icon": "/assets/amperemeter.svg",
+      "units": {
+        "en": "A",
+        "no": "A"
+      },
+      "insights": true
+    },
+    "measure_rms_current_phase_b": {
+      "type": "number",
+      "title": {
+        "en": "Current phase b",
+        "no": "Strøm fase b"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "decimals": 3,
+      "min": 0,
+      "max": 60000000,
+      "icon": "/assets/amperemeter.svg",
+      "units": {
+        "en": "A",
+        "no": "A"
+      },
+      "insights": true
+    },
+    "measure_rms_current_phase_c": {
+      "type": "number",
+      "title": {
+        "en": "Current phase c",
+        "no": "Strøm fase c"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "decimals": 3,
+      "min": 0,
+      "max": 60000000,
+      "icon": "/assets/amperemeter.svg",
+      "units": {
+        "en": "A",
+        "no": "A"
+      },
+      "insights": true
+    },
+    "measure_rms_voltage": {
+      "type": "number",
+      "title": {
+        "en": "Voltage",
+        "no": "Volt"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "decimals": 3,
+      "min": 0,
+      "max": 60000000,
+      "icon": "/assets/voltmeter.svg",
+      "units": {
+        "en": "V",
+        "no": "V"
+      },
+      "insights": true
+    },
+    "measure_rms_voltage_phase_b": {
+      "type": "number",
+      "title": {
+        "en": "Voltage phase b",
+        "no": "Volt fase b"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "decimals": 3,
+      "min": 0,
+      "max": 60000000,
+      "icon": "/assets/voltmeter.svg",
+      "units": {
+        "en": "V",
+        "no": "V"
+      },
+      "insights": true
+    },
+    "measure_rms_voltage_phase_c": {
+      "type": "number",
+      "title": {
+        "en": "Voltage phase c",
+        "no": "Volt fase c"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "decimals": 3,
+      "min": 0,
+      "max": 60000000,
+      "icon": "/assets/voltmeter.svg",
+      "units": {
+        "en": "V",
+        "no": "V"
+      },
+      "insights": true
+    }
+  }
+}
