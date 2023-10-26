@@ -23,6 +23,25 @@ class EvaSocket extends ZigBeeDevice {
 			},
 		});
 
+		if (this.hasCapability('measure_temperature')) {
+			this.registerCapability('measure_temperature', CLUSTER.TEMPERATURE_MEASUREMENT, {
+				getOpts: {
+					getOnOnline: true
+				},
+				get: 'measuredValue',
+				getParser: value => (value + this.getSettings().offset)/100,
+				report: 'measuredValue',
+				reportParser: value => (value + this.getSettings().offset)/100,
+				reportOps: {
+					configureAttributeReporting: {
+						minInterval: 300,
+						maxInterval: 3600,
+						reportableChange: 50
+					}
+				}
+			});
+		}
+
 
 		this.registerCapability('measure_power', CLUSTER.ELECTRICAL_MEASUREMENT, {
 			getOpts: {
@@ -48,10 +67,8 @@ class EvaSocket extends ZigBeeDevice {
 				minChange: 0,
 			},
 		]);
-
-
-
 	}
+
 
 	async onSettings({ oldSettings, newSettings, changedKeys }) {
 		this.log('Smart plug settings were changed')
